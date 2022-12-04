@@ -1,0 +1,19 @@
+// Copyright 2021 Google LLC
+//
+// Use of this source code is governed by an MIT-style
+// license that can be found in the LICENSE file or at
+// https://opensource.org/licenses/MIT.
+
+syntax = "proto3";
+
+message HelloRequest {
+  optional string name = 1;
+}
+
+message HelloReply {
+  optional string message = 1;
+}
+
+service HelloWorld {
+  rpc SayHello(HelloRequest) returns (HelloReply) {}
+}
