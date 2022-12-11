@@ -16,8 +16,8 @@
   (hello:make-hello-reply
    :message (concatenate 'string "Hello " (hello:hello-request.name request))))
 
-(defconstant hostname "127.0.0.1" "Hostname for our server.")
-(defconstant port-number "8080" "Port for our server.")
+(defconstant +hostname+ "127.0.0.1" "Hostname for our server.")
+(defconstant +port-number+ "8080" "Port for our server.")
 
 (defun main ()
   ;; Before we use gRPC we need to init-grpc, this sets up
@@ -26,6 +26,6 @@
   ;; This starts the server.
   (grpc::run-grpc-proto-server
    (concatenate 'string
-		hostname ":"
-		(write-to-string port-number))
+		+hostname+ ":"
+		+port-number+)
    'hello:hello-world))
